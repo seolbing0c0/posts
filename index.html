@@ -941,11 +941,25 @@ async function(id,data){
 
 // 토글
 
-window.togglePost =
-function(el){
+window.togglePost = function(el){
 
-    el.parentElement
-    .classList.toggle("open");
+    const currentPost =
+    el.parentElement;
+
+    const allPosts =
+    document.querySelectorAll(".post");
+
+    allPosts.forEach((post)=>{
+
+        if(post !== currentPost){
+
+            post.classList.remove("open");
+
+        }
+
+    });
+
+    currentPost.classList.toggle("open");
 
 }
 
