@@ -944,7 +944,7 @@ async function(id,data){
 window.togglePost = function(el){
 
     const currentPost =
-    el.parentElement;
+    el.closest(".post");
 
     const allPosts =
     document.querySelectorAll(".post");
@@ -962,7 +962,6 @@ window.togglePost = function(el){
     currentPost.classList.toggle("open");
 
 }
-
 
 // 진한 색
 
