@@ -944,29 +944,35 @@ async function(id,data){
 window.togglePost = function(el){
 
     const currentPost =
-    el.parentNode;
+    el.closest(".post");
 
     const isOpen =
     currentPost.classList.contains("open");
 
-    // 전부 닫기
-    document
-    .querySelectorAll(".post")
-    .forEach((post)=>{
+    const allPosts =
+    document.querySelectorAll(".post");
 
-        post.classList.remove("open");
+    allPosts.forEach((post)=>{
+
+        if(post !== currentPost){
+
+            post.classList.remove("open");
+
+        }
 
     });
 
-    // 원래 닫혀있던 거면 다시 열기
-    if(!isOpen){
+    if(isOpen){
+
+        currentPost.classList.remove("open");
+
+    }else{
 
         currentPost.classList.add("open");
 
     }
 
 }
-
 // 진한 색
 
 function getDarkerColor(color){
