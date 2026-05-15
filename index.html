@@ -944,22 +944,26 @@ async function(id,data){
 window.togglePost = function(el){
 
     const currentPost =
-    el.closest(".post");
+    el.parentNode;
 
-    const allPosts =
-    document.querySelectorAll(".post");
+    const isOpen =
+    currentPost.classList.contains("open");
 
-    allPosts.forEach((post)=>{
+    // 전부 닫기
+    document
+    .querySelectorAll(".post")
+    .forEach((post)=>{
 
-        if(post !== currentPost){
-
-            post.classList.remove("open");
-
-        }
+        post.classList.remove("open");
 
     });
 
-    currentPost.classList.toggle("open");
+    // 원래 닫혀있던 거면 다시 열기
+    if(!isOpen){
+
+        currentPost.classList.add("open");
+
+    }
 
 }
 
