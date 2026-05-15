@@ -658,17 +658,17 @@ body{
 
 <script>
 
-// 입장하기
-
 function enterSite(){
 
-    document
-    .getElementById("introScreen")
-    .style.display = "none";
+    const intro =
+    document.getElementById("introScreen");
 
-    document
-    .getElementById("main")
-    .style.display = "block";
+    const main =
+    document.getElementById("main");
+
+    intro.remove();
+
+    main.style.display = "block";
 
 }
 
@@ -705,7 +705,9 @@ from
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyC_7KYVHTvvCpBJFy318BeEs5Ex-Qr9OtA",   authDomain: "posts-98a17.firebaseapp.com",   databaseURL: "https://posts-98a17-default-rtdb.firebaseio.com"
+    apiKey: "AIzaSyC_7KYVHTvvCpBJFy318BeEs5Ex-Qr9OtA",   
+    authDomain: "posts-98a17.firebaseapp.com",   
+   projectId: "posts-98a17"
 
 };
 
