@@ -21,14 +21,11 @@ body{
     min-height:100vh;
 }
 
-/* =========================
-   입장 화면
-========================= */
+/* 입장 화면 */
 
 .intro-screen{
 
     position:fixed;
-
     inset:0;
 
     background:#ebe3d6;
@@ -36,21 +33,18 @@ body{
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     z-index:500;
 }
 
 .intro-box{
-
     text-align:center;
 }
 
 .intro-title{
 
     font-size:42px;
-
     font-weight:700;
 
     letter-spacing:1px;
@@ -84,9 +78,7 @@ body{
     transform:translateY(-2px);
 }
 
-/* =========================
-   메인
-========================= */
+/* 메인 */
 
 .main{
 
@@ -150,9 +142,7 @@ body{
     margin-bottom:22px;
 }
 
-/* =========================
-   게시판
-========================= */
+/* 게시판 */
 
 .board{
 
@@ -207,19 +197,25 @@ body{
     word-break:break-word;
 }
 
+/* 화살표 */
+
 .arrow{
 
-    font-size:18px;
+    font-size:15px;
+
+    font-weight:700;
 
     transition:.2s;
 
-    color:#222;
+    opacity:.75;
 }
 
 .post.open .arrow{
 
-    transform:rotate(180deg);
+    transform:rotate(90deg);
 }
+
+/* 내용 */
 
 .post-content{
 
@@ -236,7 +232,7 @@ body{
 
 .post.open .post-content{
 
-    max-height:600px;
+    max-height:700px;
 }
 
 .post-inner{
@@ -254,7 +250,20 @@ body{
 
     color:#222;
 
-    margin-bottom:15px;
+    margin-bottom:10px;
+}
+
+/* 날짜 */
+
+.post-date{
+
+    text-align:right;
+
+    font-size:11px;
+
+    color:rgba(0,0,0,.45);
+
+    margin-bottom:14px;
 }
 
 /* 관리자 버튼 */
@@ -298,9 +307,7 @@ body{
     background:#703737;
 }
 
-/* =========================
-   플로팅 버튼
-========================= */
+/* 작성 버튼 */
 
 .floating-write{
 
@@ -334,8 +341,6 @@ body{
 
     line-height:1;
 
-    padding-bottom:3px;
-
     box-shadow:
     0 8px 25px rgba(0,0,0,.2);
 
@@ -351,9 +356,7 @@ body{
     background:#303030;
 }
 
-/* =========================
-   모달
-========================= */
+/* 모달 */
 
 .modal{
 
@@ -450,7 +453,7 @@ body{
     margin-bottom:14px;
 }
 
-/* 모달 하단 */
+/* 모달 버튼 */
 
 .modal-bottom{
 
@@ -498,21 +501,18 @@ body{
 @media(max-width:600px){
 
     .board{
-
         grid-template-columns:1fr;
     }
 
     .floating-write{
 
         width:58px;
-
         height:58px;
 
         font-size:34px;
     }
 
     .intro-title{
-
         font-size:34px;
     }
 }
@@ -522,7 +522,7 @@ body{
 
 <body>
 
-<!-- 입장 화면 -->
+<!-- 입장 -->
 
 <div
     class="intro-screen"
@@ -705,9 +705,11 @@ from
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyC_7KYVHTvvCpBJFy318BeEs5Ex-Qr9OtA",   
-    authDomain: "posts-98a17.firebaseapp.com",   
-   projectId: "posts-98a17"
+    apiKey: "AIzaSyC_7KYVHTvvCpBJFy318BeEs5Ex-Qr9OtA",
+
+    authDomain: "posts-98a17.firebaseapp.com",
+
+    projectId: "posts-98a17"
 
 };
 
@@ -857,7 +859,17 @@ window.savePost = async function(){
                 color,
 
                 createdAt:
-                Date.now()
+                Date.now(),
+
+                date:
+                new Date().toLocaleDateString(
+                    "ko-KR",
+                    {
+                        year:"numeric",
+                        month:"2-digit",
+                        day:"2-digit"
+                    }
+                )
 
             }
 
@@ -938,6 +950,29 @@ function(el){
 }
 
 
+// 진한 색
+
+function getDarkerColor(color){
+
+    const colors = {
+
+        "#FFE88C":"#B89D2F",
+
+        "#FFC6C6":"#B56A6A",
+
+        "#C6F1FF":"#5D92A1",
+
+        "#D9FFC6":"#6F9D58",
+
+        "#E0D0FF":"#7C67A8"
+
+    };
+
+    return colors[color] || "#555";
+
+}
+
+
 // 불러오기
 
 async function loadPosts(){
@@ -981,8 +1016,13 @@ async function loadPosts(){
 
                 </div>
 
-                <div class="arrow">
-                    ⌄
+                <div
+                    class="arrow"
+                    style="
+                    color:${getDarkerColor(data.color)};
+                    "
+                >
+                    ▶
                 </div>
 
             </div>
@@ -994,6 +1034,12 @@ async function loadPosts(){
                     <div class="post-text">
 
                         ${escapeHtml(data.content)}
+
+                    </div>
+
+                    <div class="post-date">
+
+                        ${data.date || ""}
 
                     </div>
 
