@@ -24,17 +24,12 @@ body{
 /* 입장 화면 */
 
 .intro-screen{
-
     position:fixed;
     inset:0;
-
     background:#ebe3d6;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
     z-index:500;
 }
 
@@ -43,363 +38,243 @@ body{
 }
 
 .intro-title{
-
     font-size:42px;
     font-weight:700;
-
     letter-spacing:1px;
-
     margin-bottom:24px;
 }
 
 .enter-btn{
-
     border:none;
-
     background:#1f1f1f;
-
     color:white;
-
     padding:14px 24px;
-
     border-radius:16px;
-
     font-size:15px;
-
     cursor:pointer;
-
     transition:.15s;
 }
 
 .enter-btn:hover{
-
     background:#303030;
-
     transform:translateY(-2px);
 }
 
 /* 메인 */
 
 .main{
-
     display:none;
-
     padding:24px;
 }
 
 .topbar{
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:28px;
 }
 
 .logo{
-
     font-size:28px;
-
     font-weight:700;
-
     letter-spacing:1px;
 }
 
 /* 관리자 버튼 */
 
 .admin-btn{
-
     background:#1f1f1f;
-
     color:white;
-
     border:none;
-
     padding:9px 13px;
-
     border-radius:12px;
-
     font-size:12px;
-
     cursor:pointer;
-
     transition:.15s;
 }
 
 .admin-btn:hover{
-
     background:#303030;
 }
 
 .login-status{
-
     color:#666;
-
     font-size:13px;
-
     margin-bottom:22px;
 }
 
 /* 게시판 */
 
 .board{
-
     display:grid;
-
     grid-template-columns:
     repeat(auto-fill,minmax(270px,1fr));
-
     gap:20px;
 }
 
 /* 포스트잇 */
 
 .post{
-
     border-radius:20px;
-
     overflow:hidden;
-
     box-shadow:
     0 8px 20px rgba(0,0,0,.08);
-
     transition:.2s;
 }
 
 .post:hover{
-
     transform:translateY(-3px);
 }
 
 .post-header{
-
     padding:18px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     cursor:pointer;
 }
 
 .post-title{
-
     font-size:17px;
-
     font-weight:700;
-
     color:#222;
-
     word-break:break-word;
 }
 
 /* 화살표 */
 
 .arrow{
-
     font-size:15px;
-
     font-weight:700;
-
     transition:.2s;
-
     opacity:.75;
 }
 
 .post.open .arrow{
-
     transform:rotate(90deg);
 }
 
 /* 내용 */
 
 .post-content{
-
     max-height:0;
-
     overflow:hidden;
-
     transition:max-height .3s ease;
-
     background:rgba(255,255,255,.18);
-
     backdrop-filter:blur(4px);
 }
 
 .post.open .post-content{
-
     max-height:700px;
 }
 
 .post-inner{
-
     padding:0 18px 18px;
 }
 
 .post-text{
-
     white-space:pre-wrap;
-
     line-height:1.6;
-
     word-break:break-word;
-
     color:#222;
-
     margin-bottom:10px;
 }
 
 /* 날짜 */
 
 .post-date{
-
     text-align:right;
-
     font-size:11px;
-
     color:rgba(0,0,0,.45);
-
     margin-bottom:14px;
 }
 
 /* 관리자 버튼 */
 
 .admin-tools{
-
     display:flex;
-
     gap:8px;
 }
 
 .tool-btn{
-
     border:none;
-
     background:#1f1f1f;
-
     color:white;
-
     padding:8px 12px;
-
     border-radius:10px;
-
     font-size:13px;
-
     cursor:pointer;
 }
 
 .tool-btn:hover{
-
     background:#303030;
 }
 
 .delete{
-
     background:#5b2c2c;
 }
 
 .delete:hover{
-
     background:#703737;
 }
 
 /* 작성 버튼 */
 
 .floating-write{
-
     position:fixed;
-
     right:24px;
-
     bottom:24px;
-
     width:64px;
-
     height:64px;
-
     border:none;
-
     border-radius:50%;
-
     background:#1f1f1f;
-
     color:white;
-
     cursor:pointer;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     font-size:38px;
-
     line-height:1;
-
     box-shadow:
     0 8px 25px rgba(0,0,0,.2);
-
     transition:.18s;
-
     z-index:100;
 }
 
 .floating-write:hover{
-
     transform:scale(1.06);
-
     background:#303030;
 }
 
 /* 모달 */
 
 .modal{
-
     position:fixed;
-
     inset:0;
-
     background:rgba(0,0,0,.45);
-
     display:none;
-
     justify-content:center;
-
     align-items:center;
-
     z-index:999;
 }
 
 .modal.show{
-
     display:flex;
 }
 
 .modal-box{
-
     width:min(92%,520px);
-
     background:#f4efe7;
-
     border-radius:24px;
-
     padding:22px;
-
     box-shadow:
     0 15px 35px rgba(0,0,0,.2);
 }
 
 .modal-title{
-
     font-size:24px;
-
     font-weight:700;
-
     margin-bottom:18px;
 }
 
@@ -408,91 +283,62 @@ body{
 .input,
 .textarea,
 .select{
-
     width:100%;
-
     border:none;
-
     background:#e4dbcd;
-
     border-radius:14px;
-
     padding:14px;
-
     margin-bottom:14px;
-
     font-size:15px;
-
     color:#222;
 }
 
 .input:focus,
 .textarea:focus,
 .select:focus{
-
     outline:none;
 }
 
 .textarea{
-
     min-height:190px;
-
     resize:none;
 }
 
 .count{
-
     text-align:right;
-
     font-size:13px;
-
     color:#666;
-
     margin-top:-6px;
-
     margin-bottom:14px;
 }
 
 /* 모달 버튼 */
 
 .modal-bottom{
-
     display:flex;
-
     justify-content:flex-end;
-
     gap:10px;
 }
 
 .modal-btn{
-
     border:none;
-
     background:#1f1f1f;
-
     color:white;
-
     padding:12px 16px;
-
     border-radius:12px;
-
     cursor:pointer;
-
     transition:.15s;
 }
 
 .modal-btn:hover{
-
     background:#303030;
 }
 
 .cancel{
-
     background:#8c857b;
 }
 
 .cancel:hover{
-
     background:#9d968b;
 }
 
@@ -505,10 +351,8 @@ body{
     }
 
     .floating-write{
-
         width:58px;
         height:58px;
-
         font-size:34px;
     }
 
@@ -524,10 +368,7 @@ body{
 
 <!-- 입장 -->
 
-<div
-    class="intro-screen"
-    id="introScreen"
->
+<div class="intro-screen" id="introScreen">
 
     <div class="intro-box">
 
@@ -548,10 +389,7 @@ body{
 
 <!-- 메인 -->
 
-<div
-    class="main"
-    id="main"
->
+<div class="main" id="main">
 
     <div class="topbar">
 
@@ -575,10 +413,7 @@ body{
         관리자 로그아웃 상태
     </div>
 
-    <div
-        class="board"
-        id="board"
-    ></div>
+    <div class="board" id="board"></div>
 
 </div>
 
@@ -593,10 +428,7 @@ body{
 
 <!-- 모달 -->
 
-<div
-    class="modal"
-    id="modal"
->
+<div class="modal" id="modal">
 
     <div class="modal-box">
 
@@ -604,10 +436,7 @@ body{
             포스트잇 작성
         </div>
 
-        <select
-            class="select"
-            id="color"
-        >
+        <select class="select" id="color">
             <option value="#FFE88C">노랑</option>
             <option value="#FFC6C6">핑크</option>
             <option value="#C6F1FF">하늘</option>
@@ -700,9 +529,6 @@ query
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-// firebase 설정
-
 const firebaseConfig = {
 
     apiKey: "AIzaSyC_7KYVHTvvCpBJFy318BeEs5Ex-Qr9OtA",
@@ -712,7 +538,6 @@ const firebaseConfig = {
     projectId: "posts-98a17"
 
 };
-
 
 const app =
 initializeApp(firebaseConfig);
@@ -745,8 +570,7 @@ let admin = false;
 
 let editId = null;
 
-
-// 글자 수
+/* 글자 수 */
 
 contentInput.addEventListener(
 
@@ -759,8 +583,7 @@ contentInput.addEventListener(
 
 });
 
-
-// 모달
+/* 모달 */
 
 window.openModal = function(){
 
@@ -784,8 +607,7 @@ window.closeModal = function(){
 
 }
 
-
-// 관리자 로그인
+/* 관리자 로그인 */
 
 window.adminLogin = function(){
 
@@ -811,8 +633,7 @@ window.adminLogin = function(){
 
 }
 
-
-// 저장
+/* 저장 */
 
 window.savePost = async function(){
 
@@ -883,8 +704,7 @@ window.savePost = async function(){
 
 }
 
-
-// 삭제
+/* 삭제 */
 
 window.deletePost =
 async function(id){
@@ -907,8 +727,7 @@ async function(id){
 
 }
 
-
-// 수정
+/* 수정 */
 
 window.editPost =
 async function(id,data){
@@ -938,23 +757,20 @@ async function(id,data){
 
 }
 
+/* 토글 */
 
-// 토글
-
-window.togglePost = function(el){
-
-    const currentPost =
-    el.closest(".post");
-
-    const isOpen =
-    currentPost.classList.contains("open");
+window.togglePost = function(id){
 
     const allPosts =
     document.querySelectorAll(".post");
 
     allPosts.forEach((post)=>{
 
-        if(post !== currentPost){
+        if(post.dataset.id === id){
+
+            post.classList.toggle("open");
+
+        }else{
 
             post.classList.remove("open");
 
@@ -962,18 +778,9 @@ window.togglePost = function(el){
 
     });
 
-    if(isOpen){
-
-        currentPost.classList.remove("open");
-
-    }else{
-
-        currentPost.classList.add("open");
-
-    }
-
 }
-// 진한 색
+
+/* 진한 색 */
 
 function getDarkerColor(color){
 
@@ -995,8 +802,7 @@ function getDarkerColor(color){
 
 }
 
-
-// 불러오기
+/* 불러오기 */
 
 async function loadPosts(){
 
@@ -1023,6 +829,8 @@ async function loadPosts(){
 
         div.className = "post";
 
+        div.dataset.id = item.id;
+
         div.style.background =
         data.color;
 
@@ -1030,7 +838,7 @@ async function loadPosts(){
 
             <div
                 class="post-header"
-                onclick="togglePost(this)"
+                onclick="togglePost('${item.id}')"
             >
 
                 <div class="post-title">
@@ -1109,8 +917,7 @@ async function loadPosts(){
 
 }
 
-
-// html 방지
+/* html 방지 */
 
 function escapeHtml(text){
 
@@ -1123,7 +930,6 @@ function escapeHtml(text){
     .replace(/>/g,"&gt;");
 
 }
-
 
 loadPosts();
 
