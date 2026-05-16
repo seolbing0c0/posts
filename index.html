@@ -152,48 +152,24 @@ body{
 
 .post-content{
 
-    height:0;
+    max-height:0;
 
     overflow:hidden;
 
-    opacity:0;
-
     transition:
-    height .35s ease,
+    max-height .35s ease,
     opacity .25s ease;
 
     background:rgba(255,255,255,.18);
 
     backdrop-filter:blur(4px);
-}
-
-.post.open .post-content{
-
-    height:auto;
-
-    opacity:1;
-}
-
-.post-content{
-
-    height:0;
-
-    overflow:hidden;
 
     opacity:0;
-
-    transition:
-    height .35s ease,
-    opacity .25s ease;
-
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(4px);
 }
 
 .post.open .post-content{
 
-    height:auto;
+    max-height:1000px;
 
     opacity:1;
 }
@@ -202,20 +178,20 @@ body{
 
     padding:18px;
 
-    opacity:0;
-
     transform:translateY(-6px);
 
     transition:
-    opacity .25s ease,
-    transform .25s ease;
+    transform .25s ease,
+    opacity .25s ease;
+
+    opacity:0;
 }
 
 .post.open .post-inner{
 
-    opacity:1;
-
     transform:translateY(0);
+
+    opacity:1;
 }
 
 .post-text{
