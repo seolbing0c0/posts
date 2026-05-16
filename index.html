@@ -150,48 +150,61 @@ body{
     opacity:.75;
 }
 
-.post.open .arrow{
-    transform:rotate(90deg);
+.post-content{
+
+    height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:
+    height .35s ease,
+    opacity .25s ease;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(4px);
 }
 
-window.togglePost = function(id){
+.post.open .post-content{
 
-    const allPosts =
-    document.querySelectorAll(".post");
+    height:auto;
 
-    allPosts.forEach((post)=>{
+    opacity:1;
+}
 
-        // 클릭한 포스트
-        if(post.dataset.id === id){
+.post-inner{
 
-            // 이미 열려있으면 닫기
-            if(post.classList.contains("open")){
+    padding:18px;
 
-                post.classList.remove("open");
+    opacity:0;
 
-            }else{
+    transform:translateY(-6px);
 
-                // 다른 거 전부 닫기
-                allPosts.forEach((p)=>{
+    transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
 
-                    p.classList.remove("open");
+.post.open .post-inner{
 
-                });
+    opacity:1;
 
-                // 현재 것만 열기
-                post.classList.add("open");
+    transform:translateY(0);
+}
 
-            }
+.post-text{
 
-        }else{
+    white-space:pre-wrap;
 
-            // 나머지 자동 닫기
-            post.classList.remove("open");
+    line-height:1.6;
 
-        }
+    word-break:break-word;
 
-    });
+    color:#222;
 
+    margin-bottom:10px;
 }
 /* 날짜 */
 
