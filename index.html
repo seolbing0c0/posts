@@ -160,15 +160,18 @@ body{
 
     overflow:hidden;
 
+    opacity:0;
+
+    padding:0 18px;
+
     transition:
     max-height .35s ease,
-    opacity .25s ease;
+    opacity .25s ease,
+    padding .25s ease;
 
     background:rgba(255,255,255,.18);
 
     backdrop-filter:blur(4px);
-
-    opacity:0;
 }
 
 .post.open .post-content{
@@ -176,26 +179,26 @@ body{
     max-height:1000px;
 
     opacity:1;
+
+    padding:18px;
 }
 
 .post-inner{
 
-    padding:18px;
+    opacity:0;
 
     transform:translateY(-6px);
 
     transition:
-    transform .25s ease,
-    opacity .25s ease;
-
-    opacity:0;
+    opacity .25s ease,
+    transform .25s ease;
 }
 
 .post.open .post-inner{
 
-    transform:translateY(0);
-
     opacity:1;
+
+    transform:translateY(0);
 }
 
 .post-text{
