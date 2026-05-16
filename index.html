@@ -154,64 +154,44 @@ body{
     transform:rotate(90deg);
 }
 
-.post-content{
+window.togglePost = function(id){
 
-    max-height:0;
+    const allPosts =
+    document.querySelectorAll(".post");
 
-    overflow:hidden;
+    allPosts.forEach((post)=>{
 
-    opacity:0;
+        // 클릭한 포스트
+        if(post.dataset.id === id){
 
-    padding:0 18px;
+            // 이미 열려있으면 닫기
+            if(post.classList.contains("open")){
 
-    transition:
-    max-height .35s ease,
-    opacity .25s ease,
-    padding .25s ease;
+                post.classList.remove("open");
 
-    background:rgba(255,255,255,.18);
+            }else{
 
-    backdrop-filter:blur(4px);
-}
+                // 다른 거 전부 닫기
+                allPosts.forEach((p)=>{
 
-.post.open .post-content{
+                    p.classList.remove("open");
 
-    max-height:1000px;
+                });
 
-    opacity:1;
+                // 현재 것만 열기
+                post.classList.add("open");
 
-    padding:18px;
-}
+            }
 
-.post-inner{
+        }else{
 
-    opacity:0;
+            // 나머지 자동 닫기
+            post.classList.remove("open");
 
-    transform:translateY(-6px);
+        }
 
-    transition:
-    opacity .25s ease,
-    transform .25s ease;
-}
+    });
 
-.post.open .post-inner{
-
-    opacity:1;
-
-    transform:translateY(0);
-}
-
-.post-text{
-
-    white-space:pre-wrap;
-
-    line-height:1.6;
-
-    word-break:break-word;
-
-    color:#222;
-
-    margin-bottom:10px;
 }
 /* 날짜 */
 
