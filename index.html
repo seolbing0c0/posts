@@ -154,59 +154,27 @@ body{
     transform:rotate(90deg);
 }
 
-/* 내용 */
-
-/* 내용 */
-
 .post-content{
-
     max-height:0;
-
     overflow:hidden;
-
-    transition:
-    max-height .35s ease;
-
+    transition:max-height .3s ease;
     background:rgba(255,255,255,.18);
-
     backdrop-filter:blur(4px);
 }
 
 .post.open .post-content{
-
-    max-height:1000px;
+    max-height:700px;
 }
 
 .post-inner{
-
     padding:0 18px 18px;
-
-    opacity:0;
-
-    transform:translateY(-6px);
-
-    transition:
-    opacity .25s ease,
-    transform .25s ease;
-}
-
-.post.open .post-inner{
-
-    opacity:1;
-
-    transform:translateY(0);
 }
 
 .post-text{
-
     white-space:pre-wrap;
-
     line-height:1.6;
-
     word-break:break-word;
-
     color:#222;
-
     margin-bottom:10px;
 }
 /* 날짜 */
